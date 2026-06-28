@@ -1,63 +1,50 @@
-// ظهور العناصر عند النزول
-
-const cards = document.querySelectorAll(".card");
-
-const observer = new IntersectionObserver(entries => {
-
-entries.forEach(entry => {
-
-if(entry.isIntersecting){
-
-entry.target.style.opacity="1";
-entry.target.style.transform="translateY(0)";
-
+function openWhatsApp(number){
+  window.open("https://wa.me/" + number, "_blank");
 }
 
-});
+function playMusic(){
+  const music = document.getElementById("bgmusic");
+  music.play();
+}
 
-});
 
-cards.forEach(card=>{
+// ================= COUNTDOWN =================
 
-card.style.opacity="0";
-
-card.style.transform="translateY(80px)";
-
-card.style.transition="1s";
-
-observer.observe(card);
-
-});
-
-// عداد تنازلي
-
-const targetDate = new Date("July 11, 2026 19:00:00").getTime();
+const targetDate = new Date("2026-07-11T19:00:00").getTime();
 
 const countdown = document.createElement("div");
 
-countdown.style.position="fixed";
-countdown.style.top="20px";
-countdown.style.left="20px";
-countdown.style.background="rgba(255,255,255,.9)";
-countdown.style.color="#b8860b";
-countdown.style.padding="12px 20px";
-countdown.style.borderRadius="15px";
-countdown.style.fontWeight="bold";
-countdown.style.boxShadow="0 10px 30px rgba(0,0,0,.2)";
+countdown.style.position = "fixed";
+countdown.style.top = "20px";
+countdown.style.left = "20px";
+countdown.style.background = "rgba(0,0,0,0.75)";
+countdown.style.color = "#f4d58d";
+countdown.style.padding = "14px 18px";
+countdown.style.borderRadius = "14px";
+countdown.style.fontWeight = "bold";
+countdown.style.fontSize = "15px";
+countdown.style.zIndex = "9999";
+countdown.style.backdropFilter = "blur(8px)";
 
 document.body.appendChild(countdown);
 
-setInterval(()=>{
+function updateCountdown(){
 
-const now = new Date().getTime();
+  const now = new Date().getTime();
+  const distance = targetDate - now;
 
-const distance = targetDate-now;
+  if(distance < 0){
+    countdown.innerHTML = "🎉 اليوم الكبير وصل!";
+    return;
+  }
 
-const days = Math.floor(distance/(1000*60*60*24));
+  const days = Math.floor(distance / (1000*60*60*24));
+  const hours = Math.floor((distance % (1000*60*60*24))/(1000*60*60));
+  const minutes = Math.floor((distance % (1000*60*60))/(1000*60));
 
-const hours = Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+  countdown.innerHTML =
+    "⏳ " + days + " يوم • " + hours + " ساعة • " + minutes + " دقيقة";
+}
 
-countdown.innerHTML =
-"⏳ "+days+" يوم و "+hours+" ساعة";
-
-},1000);
+updateCountdown();
+setInterval(updateCountdown, 60000);
