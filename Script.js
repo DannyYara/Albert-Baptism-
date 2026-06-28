@@ -1,6 +1,6 @@
-// ================================
-// ظهور الكتابة بعد 3 ثواني
-// ================================
+// ===============================
+// 1. إظهار الهيرو بعد 3 ثواني
+// ===============================
 
 window.addEventListener("load", () => {
 
@@ -8,22 +8,22 @@ window.addEventListener("load", () => {
 
         document.querySelector(".hero").classList.add("show");
 
-    },3000);
+    }, 3000);
 
 });
 
 
-// ================================
-// ظهور الكروت عند النزول
-// ================================
+// ===============================
+// 2. ظهور الكروت عند النزول
+// ===============================
 
 const cards = document.querySelectorAll(".card");
 
-const observer = new IntersectionObserver((entries)=>{
+const observer = new IntersectionObserver((entries) => {
 
-    entries.forEach(entry=>{
+    entries.forEach(entry => {
 
-        if(entry.isIntersecting){
+        if (entry.isIntersecting) {
 
             entry.target.classList.add("show");
 
@@ -31,67 +31,42 @@ const observer = new IntersectionObserver((entries)=>{
 
     });
 
-},{
-    threshold:0.2
+}, {
+    threshold: 0.2
 });
 
-cards.forEach(card=>{
-
+cards.forEach(card => {
     observer.observe(card);
-
 });
 
 
-// ================================
-// عداد العماد
-// ================================
+// ===============================
+// 3. العداد (Countdown)
+// ===============================
 
 const countdown = document.createElement("div");
-
-countdown.className="countdown";
-
+countdown.className = "countdown";
 document.body.appendChild(countdown);
 
 const targetDate = new Date("2026-07-11T19:00:00").getTime();
 
-function updateCountdown(){
+function updateCountdown() {
 
     const now = new Date().getTime();
+    const distance = targetDate - now;
 
-    const distance = targetDate-now;
-
-    if(distance<=0){
-
-        countdown.innerHTML="🎉 اليوم الكبير وصل!";
-
+    if (distance <= 0) {
+        countdown.innerHTML = "🎉 اليوم الكبير وصل!";
         return;
-
     }
 
-    const days=Math.floor(distance/(1000*60*60*24));
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
 
-    const hours=Math.floor((distance%(1000*60*60*24))/(1000*60*60));
-
-    const minutes=Math.floor((distance%(1000*60*60))/(1000*60));
-
-    countdown.innerHTML=
-    "⏳ "+days+" يوم • "+hours+" ساعة • "+minutes+" دقيقة";
-
+    countdown.innerHTML =
+        "⏳ " + days + " يوم • " + hours + " ساعة • " + minutes + " دقيقة";
 }
 
 updateCountdown();
-
-setInterval(updateCountdown,60000);
-
-
-// ================================
-// تشغيل الموسيقى
-// ================================
-
-const music=document.getElementById("bgmusic");
-
-document.addEventListener("click",()=>{
-
-    music.play().catch(()=>{});
-
-},{once:true});
+setInterval(updateCountdown, 60000);
