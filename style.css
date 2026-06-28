@@ -13,9 +13,10 @@ overflow-x:hidden;
 
 /* الخلفية */
 
-.hero{
+.hero-content{
 
 position:relative;
+  z-index: 10;
 
 height:100vh;
 
