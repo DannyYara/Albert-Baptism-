@@ -1,11 +1,8 @@
 <!DOCTYPE html>
-
 <html lang="ar" dir="rtl">
 
 <head>
-
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>دعوة العماد</title>
@@ -14,10 +11,69 @@
 
 <link rel="stylesheet" href="style.css">
 
+<style>
+body {
+  font-family: 'Cairo', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #111;
+  color: white;
+}
+
+/* HERO */
+.hero {
+  position: relative;
+  height: 100vh;
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero img.background {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
+}
+
+.hero-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+/* CARDS */
+.card {
+  background: rgba(255,255,255,0.1);
+  margin: 20px;
+  padding: 20px;
+  border-radius: 15px;
+}
+
+.gold-button {
+  background: gold;
+  padding: 10px 20px;
+  display: inline-block;
+  color: black;
+  text-decoration: none;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+</style>
+
 </head>
 
 <body>
 
+<!-- HERO -->
 <section class="hero">
 
 <img src="Hero.JPG" class="background">
@@ -26,189 +82,48 @@
 
 <div class="hero-content">
 
-<p class="small">
+<p>🔔 دقّوا الجرس...</p>
 
-🔔 دقّوا الجرس... وجهّزوا حالكم!
+<h1>لأنو صار الوقت يصير عندي أول موعد رسمي</h1>
 
-</p>
+<h3>Albert Kikoloff</h3>
 
-<h1>
-
-لأنو صار الوقت
-
-يصير عندي أول موعد رسمي
-
-مع الميّ المقدسة!
-
-</h1>
-
-<h2>
-
-بتشرّفوني بعمادتي أنا
-
-</h2>
-
-<h3>
-
-Albert Kikoloff
-
-</h3>
-  <p class="verse">
-
-«دَعُوا الأَوْلادَ يَأْتُونَ إِلَيَّ،
-وَلا تَمْنَعُوهُمْ،
-لأَنَّ لِمِثْلِ هؤُلاءِ مَلَكُوتَ اللهِ.»
-
-<br><br>
-
-مرقس 10:14
-
-</p>
-
-<a href="#details" class="gold-button">
-
-اكتشف الدعوة
-
-</a>
+<a href="#details" class="gold-button">اكتشف الدعوة</a>
 
 </div>
 
 </section>
 
+<!-- DETAILS -->
 <section id="details">
 
 <div class="card">
-
-<h2>
-
-📅 السبت
-
-11 / 7 / 2026
-
-</h2>
-
-<p>
-
-🕖 الساعة 7:00 مساءً
-
-</p>
-
-<p>
-
-⛪ كنيسة آجيا صوفيا
-
-</p>
-
-<p>
-
-صيدنايا
-
-</p>
-
-<a
-
-class="maps"
-
-href="https://maps.app.goo.gl/PJXiw7kC6fboTWg87?g_st=iw"
-
-target="_blank">
-
-📍 اضغط هنا لفتح موقع الكنيسة
-
-</a>
-
-</div>
-  <div class="card">
-
-<h2>
-
-وبعد ما نبارك المناسبة...
-
-</h2>
-
-<h1>
-
-لا تستعجلوا الفرحة...
-
-<br>
-
-لسا بأولها ❤️
-
-</h1>
-
-<p>
-
-🍽️ الساعة 9:00 مساءً
-
-</p>
-
-<p>
-
-مطعم جنّة – صيدنايا
-
-</p>
-
+<h2>📅 11 / 7 / 2026</h2>
+<p>🕖 الساعة 7:00 مساءً</p>
+<p>⛪ كنيسة آجيا صوفيا - صيدنايا</p>
 </div>
 
 <div class="card">
-
-<h2>
-
-وجودكم هو أحلى هدية
-
-وأجمل بركة إلي.
-
-</h2>
-
-<p>
-
-ناطركون بكل حب 🤍
-
-</p>
-
+<h2>🍽️ بعد الاحتفال</h2>
+<p>مطعم جنّة - صيدنايا</p>
+<p>الساعة 9:00 مساءً</p>
 </div>
 
 <div class="card">
+<h2>💛 وجودكم هو أجمل هدية</h2>
+<p>ناطركون بكل حب</p>
+</div>
 
-<h2>
+<div class="card">
+<h2>📩 تأكيد الحضور</h2>
 
-تأكيد الحضور
-
-</h2>
-
-<div class="buttons">
-
-<a class="gold-button"
-
-href="https://wa.me/4915259804066"
-
-target="_blank">
-
-💬 Yara
-
-</a>
-
+<a class="gold-button" href="https://wa.me/4915259804066" target="_blank">Yara</a>
 <br><br>
-
-<a class="gold-button"
-
-href="https://wa.me/491727463479"
-
-target="_blank">
-
-💬 Danny
-
-</a>
-
-</div>
+<a class="gold-button" href="https://wa.me/491727463479" target="_blank">Danny</a>
 
 </div>
 
 </section>
 
-<script src="script.js"></script>
-
 </body>
-
 </html>
-  
