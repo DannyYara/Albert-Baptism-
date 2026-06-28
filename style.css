@@ -1,20 +1,31 @@
+/* ===========================
+   RESET
+=========================== */
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
+}
+
+html{
     scroll-behavior:smooth;
 }
 
 body{
     font-family:'Cairo',sans-serif;
-    background:#f6f4ef;
+    background:#f8f6f2;
     overflow-x:hidden;
+    color:#333;
 }
 
-/* ================= HERO ================= */
+/* ===========================
+   HERO
+=========================== */
 
 .hero{
     position:relative;
+    width:100%;
     height:100vh;
     display:flex;
     justify-content:center;
@@ -25,94 +36,98 @@ body{
 
 .background{
     position:absolute;
-    top:0;
-    left:0;
+    inset:0;
     width:100%;
     height:100%;
     object-fit:cover;
-    z-index:-3;
+    z-index:1;
 }
 
 .overlay{
     position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
+    inset:0;
     background:
-    radial-gradient(circle at top,rgba(255,255,255,.18),transparent 45%),
-    linear-gradient(rgba(0,0,0,.10),rgba(0,0,0,.55));
-    z-index:-2;
+    linear-gradient(rgba(0,0,0,.15),rgba(0,0,0,.60)),
+    radial-gradient(circle at top,
+    rgba(255,255,255,.18),
+    transparent 60%);
+    z-index:2;
 }
 
-/* ===== الكتابة تظهر بعد 3 ثواني ===== */
+/* ===========================
+   HERO CONTENT
+=========================== */
 
 .hero-content{
+
+    position:relative;
+    z-index:3;
+
     width:90%;
-    max-width:900px;
+    max-width:850px;
 
     opacity:0;
-    transform:translateY(25px);
+    transform:translateY(30px);
 
     transition:1.5s;
 }
 
+/* JS سيضيف class اسمها show */
+
 .hero.show .hero-content{
+
     opacity:1;
     transform:translateY(0);
+
 }
 
 .small{
 
-    font-size:22px;
-
     color:white;
-
-    margin-bottom:20px;
-
+    font-size:22px;
     font-weight:600;
+    margin-bottom:18px;
 
 }
 
-.hero-content h1{
-
-    font-size:34px;
+.hero h1{
 
     color:white;
-
+    font-size:34px;
     line-height:1.8;
 
-    margin-bottom:20px;
-
-    text-shadow:0 5px 15px rgba(0,0,0,.5);
+    text-shadow:
+    0 3px 12px rgba(0,0,0,.45);
 
 }
 
-.hero-content h2{
-
-    font-size:28px;
+.hero h2{
 
     color:white;
-
-    margin-bottom:10px;
+    font-size:28px;
+    margin-top:22px;
 
 }
 
-.hero-content h3{
-
-    font-size:58px;
+.hero h3{
 
     color:#f4d58d;
 
     font-family:'Cinzel',serif;
 
-    margin-bottom:35px;
+    font-size:60px;
+
+    margin:18px 0 35px;
 
     text-shadow:
     0 0 12px rgba(255,255,255,.7),
-    0 0 35px rgba(212,175,55,.8);
+    0 0 28px rgba(212,175,55,.8);
 
 }
+
+/* ===========================
+   BUTTON
+=========================== */
 
 .gold-button{
 
@@ -120,17 +135,18 @@ body{
 
     padding:16px 42px;
 
-    background:linear-gradient(45deg,#b8860b,#f4d58d);
-
-    color:white;
+    border-radius:40px;
 
     text-decoration:none;
 
-    border-radius:50px;
+    color:white;
+
+    background:
+    linear-gradient(45deg,#b8860b,#f4d58d);
 
     font-size:20px;
 
-    transition:.4s;
+    transition:.35s;
 
 }
 
@@ -139,98 +155,83 @@ body{
     transform:scale(1.05);
 
 }
+/* ===========================
+   SECTIONS
+=========================== */
 
-/* ================= DETAILS ================= */
-
-#details{
-
-    padding:90px 20px;
-
-    background:#faf8f4;
-
+section{
+    padding:80px 20px;
 }
+
+/* ===========================
+   CARD DESIGN
+=========================== */
 
 .card{
 
-    max-width:760px;
-
-    margin:35px auto;
-
-    padding:35px;
+    max-width:780px;
+    margin:25px auto;
 
     background:white;
 
-    border-radius:24px;
+    padding:35px;
 
-    box-shadow:0 12px 35px rgba(0,0,0,.12);
+    border-radius:22px;
+
+    box-shadow:0 12px 35px rgba(0,0,0,.10);
 
     text-align:center;
 
-}
-
-.card h1{
-
-    font-size:38px;
-
-    color:#b8860b;
-
-    margin-bottom:20px;
+    opacity:0;
+    transform:translateY(60px);
+    transition:0.8s ease;
 
 }
 
-.card h2{
-
-    font-size:30px;
-
-    color:#b8860b;
-
-    margin-bottom:20px;
-
+/* ظهور الكرت */
+.card.show{
+    opacity:1;
+    transform:translateY(0);
 }
 
-.card p{
-
-    font-size:22px;
-
-    line-height:2;
-
-    color:#444;
-
-}
+/* ===========================
+   VERSE (الآية)
+=========================== */
 
 .verse{
-
-    font-size:24px;
-
-    color:#666;
-
+    font-size:22px;
     line-height:2;
-
+    color:#555;
     font-style:italic;
-
 }
 
 .verse-reference{
-
-    color:#b8860b;
-
     margin-top:15px;
-
+    color:#b8860b;
     font-weight:bold;
-
 }
-/* ================= MAP BUTTON ================= */
+
+/* ===========================
+   MAP BUTTON
+=========================== */
 
 .maps{
+
     display:inline-block;
-    margin-top:25px;
-    padding:14px 30px;
+    margin-top:20px;
+
+    padding:14px 28px;
+
     background:#b8860b;
+
     color:white;
+
     text-decoration:none;
-    border-radius:40px;
-    font-size:20px;
+
+    border-radius:35px;
+
     transition:.3s;
+
 }
 
 .maps:hover{
@@ -238,62 +239,59 @@ body{
     transform:scale(1.05);
 }
 
-/* ================= FINAL ================= */
+/* ===========================
+   FINAL SECTION
+=========================== */
 
 #final{
-    padding:90px 20px;
-    background:#f6f4ef;
+    background:#f8f6f2;
 }
 
-.buttons{
-    margin-top:25px;
-}
-
-/* ================= CARD ANIMATION ================= */
-
-.card{
-    opacity:0;
-    transform:translateY(60px);
-    transition:all .8s ease;
-}
-
-.card.show{
-    opacity:1;
-    transform:translateY(0);
-}
-
-/* ================= COUNTDOWN ================= */
+/* ===========================
+   COUNTDOWN
+=========================== */
 
 .countdown{
+
     position:fixed;
-    top:20px;
+    top:15px;
     left:50%;
     transform:translateX(-50%);
+
     background:rgba(0,0,0,.75);
+
     color:#f4d58d;
-    padding:12px 22px;
-    border-radius:50px;
-    font-size:16px;
+
+    padding:12px 20px;
+
+    border-radius:40px;
+
+    font-size:15px;
+
     font-weight:bold;
+
     z-index:9999;
-    box-shadow:0 8px 20px rgba(0,0,0,.3);
-    backdrop-filter:blur(10px);
+
+    box-shadow:0 10px 25px rgba(0,0,0,.25);
+
 }
 
-/* ================= RESPONSIVE ================= */
+/* ===========================
+   RESPONSIVE
+=========================== */
 
 @media(max-width:768px){
 
-.hero-content h1{
+.hero h1{
     font-size:26px;
 }
 
-.hero-content h2{
+.hero h2{
     font-size:22px;
 }
 
-.hero-content h3{
-    font-size:42px;
+.hero h3{
+    font-size:40px;
 }
 
 .small{
@@ -302,37 +300,6 @@ body{
 
 .card{
     padding:25px;
-}
-
-.card h1{
-    font-size:30px;
-}
-
-.card h2{
-    font-size:24px;
-}
-
-.card p{
-    font-size:18px;
-}
-
-.verse{
-    font-size:20px;
-}
-
-.gold-button{
-    padding:14px 30px;
-    font-size:18px;
-}
-
-.maps{
-    font-size:18px;
-    padding:12px 24px;
-}
-
-.countdown{
-    font-size:13px;
-    padding:10px 18px;
 }
 
 }
