@@ -8,11 +8,9 @@
 body{
   font-family:'Cairo',sans-serif;
   background:#f6f4ef;
-  overflow-x:hidden;
-  color:white;
 }
 
-/* ===== HERO ===== */
+/* ========== HERO ========== */
 .hero{
   position:relative;
   height:100vh;
@@ -21,104 +19,104 @@ body{
   align-items:center;
   text-align:center;
   overflow:hidden;
+  color:white;
 }
 
 .background{
   position:absolute;
-  top:0;
-  left:0;
   width:100%;
   height:100%;
   object-fit:cover;
+  top:0;
+  left:0;
   z-index:0;
 }
 
 .overlay{
   position:absolute;
-  top:0;
-  left:0;
   width:100%;
   height:100%;
-  background:linear-gradient(rgba(0,0,0,.20),rgba(0,0,0,.70));
+  top:0;
+  left:0;
+  background:linear-gradient(rgba(0,0,0,.2),rgba(0,0,0,.7));
   z-index:1;
 }
 
-/* النص */
 .hero-content{
   position:relative;
   z-index:2;
   width:90%;
   max-width:900px;
-
-  opacity:0;
-  transform:translateY(20px);
-  transition:1.5s ease;
 }
 
-/* ظهور النص بعد 3 ثواني */
-.hero.show .hero-content{
-  opacity:1;
-  transform:translateY(0);
-}
+.small{ font-size:20px; }
 
-/* العناوين */
-.small{
-  font-size:20px;
-  margin-bottom:15px;
-}
+h1{ font-size:30px; margin:10px 0; }
 
-.hero-content h1{
-  font-size:30px;
-  line-height:1.6;
-  margin-bottom:15px;
-}
+h2{ font-size:24px; }
 
-.hero-content h2{
-  font-size:26px;
-  margin-bottom:10px;
-}
-
-.hero-content h3{
-  font-size:48px;
+h3{
+  font-size:50px;
   color:#f4d58d;
   margin:20px 0;
 }
 
-/* الآية */
 .bible-verse{
   font-size:18px;
-  margin:20px 0;
+  margin-top:20px;
   color:#f4e7c2;
   font-style:italic;
-  line-height:1.8;
 }
 
 .bible-verse span{
   display:block;
   margin-top:8px;
-  font-size:16px;
   color:#f4d58d;
 }
 
-/* باقي النص */
-.verse{
+/* ========== CARDS ========== */
+#details, #final{
+  padding:70px 20px;
+  text-align:center;
+}
+
+.card{
+  max-width:750px;
+  margin:25px auto;
+  padding:30px;
+  background:white;
+  border-radius:20px;
+  box-shadow:0 10px 30px rgba(0,0,0,.1);
+}
+
+.card h2{
+  color:#b8860b;
+  margin-bottom:15px;
+}
+
+.card p{
   font-size:18px;
   margin:8px 0;
-  line-height:1.6;
 }
 
-a{
-  color:#f4d58d;
+/* MAPS */
+.maps{
+  display:inline-block;
+  margin-top:15px;
+  padding:12px 25px;
+  background:#b8860b;
+  color:white;
   text-decoration:none;
+  border-radius:30px;
 }
 
-/* موبايل */
-@media(max-width:768px){
-  .hero-content h3{
-    font-size:34px;
-  }
-
-  .hero-content h1{
-    font-size:22px;
-  }
+/* BUTTONS */
+button{
+  padding:14px 30px;
+  border:none;
+  border-radius:30px;
+  background:linear-gradient(45deg,#b8860b,#f4d58d);
+  color:white;
+  font-size:18px;
+  cursor:pointer;
 }
